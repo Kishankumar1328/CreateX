@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Clone Application</title>
+    <style>
+        body {
+            background: linear-gradient(to right, violet, white);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: violet;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Voice Clone Application</h1>
+        <form action="/clone" method="post" enctype="multipart/form-data">
+            <label for="audio">Upload Audio File:</label>
+            <input type="file" name="audio" id="audio" accept="audio/*" required>
+            <br><br>
+            <button type="submit">Clone Voice</button>
+        </form>
+        {% if cloned_audio_url %}
+            <p>Cloned Audio: <a href="{{ cloned_audio_url }}" target="_blank">Listen</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>

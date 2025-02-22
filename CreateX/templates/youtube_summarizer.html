@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #7F00FF, #E100FF);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            color: black;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #7F00FF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #E100FF;
+        }
+        .output {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>YouTube Video Summarizer</h1>
+    <div class="container">
+        <input type="text" id="video_url" placeholder="Enter YouTube Video URL">
+        <button onclick="summarizeVideo()">Summarize</button>
+
+        <div class="output">
+            <h3>Transcript:</h3>
+            <p id="transcript"></p>
+
+            <h3>Summary:</h3>
+            <p id="summary"></p>
+        </div>
+    </div>
+
+    <script>
+        function summarizeVideo() {
+            const videoUrl = document.getElementById("video_url").value;
+            fetch("/summarize", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ video_url: videoUrl })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert("Error: " + data.error);
+                } else {
+                    document.getElementById("transcript").innerText = data.transcript;
+                    document.getElementById("summary").innerText = data.summary;
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+
+</body>
+</html>

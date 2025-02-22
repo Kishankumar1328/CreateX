@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f9f0ff 0%, #e6e0ff 100%);
+        }
+
+        .container {
+            display: flex;
+            background: white;
+            width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .login-form {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .welcome-section {
+            flex: 1;
+            background: linear-gradient(135deg, #b666d2 0%, #7d55c7 100%);
+            padding: 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-form h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #b666d2;
+        }
+
+        .signin-btn {
+            width: 100%;
+            padding: 12px;
+            background: #b666d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .signin-btn:hover {
+            background: #9b4db8;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .signup-link a {
+            color: #b666d2;
+            text-decoration: none;
+        }
+
+        .welcome-section h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-section p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .circles {
+            position: absolute;
+            right: 40px;
+            top: 40px;
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>LOGIN</h2>
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="signin-btn">Sign In</button>
+            </form>
+            <div class="signup-link">
+                Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a>
+            </div>
+        </div>
+        <div class="welcome-section">
+            <h1>Hey<br>Welcome<br>Back</h1>
+            <div class="circles">
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

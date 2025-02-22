@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text Chatbot</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #6D28D9;
+            --primary-light: #C4B5FD;
+            --bg-light: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chat-container {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+
+        .chat-header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .chat-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: var(--bg-light);
+        }
+
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            position: relative;
+            animation: messageAppear 0.3s ease;
+        }
+
+        .user-message {
+            background: var(--primary);
+            color: white;
+            margin-left: auto;
+            border-radius: 15px 15px 0 15px;
+        }
+
+        .bot-message {
+            background: white;
+            color: #333;
+            margin-right: auto;
+            border-radius: 15px 15px 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-input {
+            padding: 20px;
+            background: white;
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .record-button {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .record-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .record-button.recording {
+            background: #DC2626;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .record-button i {
+            font-size: 1.2rem;
+        }
+
+        .status {
+            flex: 1;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .error {
+            color: #DC2626;
+            text-align: center;
+            padding: 10px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .chat-container {
+                height: 90vh;
+            }
+
+            .chat-header h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1><i class="fas fa-microphone"></i> Speech to Text Chatbot</h1>
+            <p>Click the microphone icon and start speaking</p>
+        </div>
+
+        <div class="chat-messages" id="messages">
+            <div class="message bot-message">
+                Hi! Click the microphone button and start speaking. I'll convert your speech to text.
+            </div>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="chat-input">
+            <button class="record-button" id="recordButton">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <div class="status" id="status">Click to start recording</div>
+        </div>
+    </div>
+
+    <script>
+        const recordButton = document.getElementById('recordButton');
+        const status = document.getElementById('status');
+        const error = document.getElementById('error');
+        const messages = document.getElementById('messages');
+        let isRecording = false;
+
+        recordButton.addEventListener('click', toggleRecording);
+
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = text;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        async function toggleRecording() {
+            if (!isRecording) {
+                try {
+                    recordButton.classList.add('recording');
+                    status.textContent = 'Listening... Click to stop';
+                    isRecording = true;
+
+                    const response = await fetch('/process_audio', {
+                        method: 'POST'
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        addMessage(data.text, true);
+                    } else {
+                        showError(data.error);
+                    }
+                } catch (err) {
+                    showError('Error processing speech. Please try again.');
+                } finally {
+                    stopRecording();
+                }
+            } else {
+                stopRecording();
+            }
+        }
+
+        function stopRecording() {
+            recordButton.classList.remove('recording');
+            status.textContent = 'Click to start recording';
+            isRecording = false;
+        }
+
+        function showError(message) {
+            error.textContent = message;
+            error.style.display = 'block';
+            setTimeout(() => {
+                error.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

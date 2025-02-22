@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Capture</title>
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <style>
+        :root {
+            --primary: #5d68ff;
+            --success: #4cd964;
+            --dark: #333;
+            --light: #f8f9fa;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s;
+        }
+
+        .app-container {
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, var(--primary), #7a84ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .app-subtitle {
+            opacity: 0.9;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .camera-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        #video, #canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #canvas {
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .controls {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn {
+            border: none;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(93, 104, 255, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #4a52cc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(93, 104, 255, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(93, 104, 255, 0.3);
+        }
+
+        .btn:disabled {
+            background-color: #b5b9ff;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .status-bar {
+            padding: 12px 20px;
+            background-color: var(--light);
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+
+        .status-indicator.active {
+            background-color: var(--success);
+            box-shadow: 0 0 0 4px rgba(76, 217, 100, 0.2);
+        }
+
+        .status-indicator.waiting {
+            background-color: #ffcc00;
+            box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.2);
+        }
+
+        #status {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            padding: 0 20px 20px;
+            max-height: 160px;
+            overflow-y: auto;
+        }
+
+        .gallery-item {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .loading-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 20;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            margin-bottom: 12px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 10px 20px;
+            color: var(--dark);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .smile-detected-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(76, 217, 100, 0.3);
+            z-index: 15;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .smile-detected-overlay.visible {
+            opacity: 1;
+        }
+
+        .smile-icon {
+            font-size: 80px;
+            background-color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .app-container {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .camera-container {
+                flex: 1;
+            }
+
+            .gallery {
+                max-height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <h1>Smile Capture</h1>
+            <div class="app-subtitle">Camera only captures when you smile!</div>
+        </div>
+
+        <div class="camera-container">
+            <video id="video" playsinline></video>
+            <canvas id="canvas"></canvas>
+            <div id="loading" class="loading-indicator">
+                <div class="spinner"></div>
+                <div>Loading Face Detection...</div>
+            </div>
+            <div id="smileOverlay" class="smile-detected-overlay">
+                <div class="smile-icon">😊</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="enableBtn" class="btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+                Enable Camera
+            </button>
+        </div>
+
+        <div class="status-bar">
+            <div id="statusIndicator" class="status-indicator"></div>
+            <div id="status">Waiting for camera access...</div>
+        </div>
+
+        <h3 class="section-title">Gallery</h3>
+        <div id="gallery" class="gallery"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const statusDiv = document.getElementById('status');
+            const enableBtn = document.getElementById('enableBtn');
+            const statusIndicator = document.getElementById('statusIndicator');
+            const galleryEl = document.getElementById('gallery');
+            const loadingEl = document.getElementById('loading');
+            const smileOverlay = document.getElementById('smileOverlay');
+
+            let isCapturing = false;
+            let capturedImages = [];
+
+            // Load face-api models
+            Promise.all([
+                faceapi.nets.tinyFaceDetector.loadFromUri('https://rawgit.com/justadudewhohacks/face-api.js/master/weights'),
+                faceapi.nets.faceLandmark68Net.loadFromUri('https://rawgit.com/justadudewhohacks/face-api.js/master/weights'),
+                faceapi.nets.faceExpressionNet.loadFromUri('https://rawgit.com/justadudewhohacks/face-api.js/master/weights')
+            ]).then(startApp)
+              .catch(err => {
+                  loadingEl.innerHTML = `<div>Error loading models: ${err.message}</div>`;
+                  console.error("Error loading models:", err);
+              });
+
+            function startApp() {
+                loadingEl.classList.add('hidden');
+                enableBtn.addEventListener('click', enableCamera);
+                statusDiv.textContent = "Click 'Enable Camera' to start";
+            }
+
+            async function enableCamera() {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({
+                        video: {
+                            facingMode: 'user',
+                            width: { ideal: 1280 },
+                            height: { ideal: 720 }
+                        }
+                    });
+                    video.srcObject = stream;
+
+                    // Wait for video to be ready
+                    video.onloadedmetadata = () => {
+                        isCapturing = true;
+                        statusDiv.textContent = "Camera active - waiting for a smile...";
+                        statusIndicator.classList.add('waiting');
+                        enableBtn.disabled = true;
+                        enableBtn.innerHTML = `
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"></path>
+                                <line x1="9" y1="9" x2="15" y2="15"></line>
+                                <line x1="15" y1="9" x2="9" y2="15"></line>
+                            </svg>
+                            Camera Active
+                        `;
+                        detectSmile();
+                    };
+                } catch (err) {
+                    statusDiv.textContent = `Camera error: ${err.message}`;
+                    console.error("Error accessing camera:", err);
+                }
+            }
+
+            async function detectSmile() {
+                if (!isCapturing) return;
+
+                // Detect faces and expressions
+                const detections = await faceapi.detectAllFaces(video,
+                  new faceapi.TinyFaceDetectorOptions({ inputSize: 224 }))
+                  .withFaceLandmarks()
+                  .withFaceExpressions();
+
+                // Clear previous drawings
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // If we detected a face
+                if (detections.length > 0) {
+                    const face = detections[0];
+
+                    // Check if smiling - threshold can be adjusted
+                    if (face.expressions.happy > 0.7) {
+                        // Show smile overlay effect
+                        smileOverlay.classList.add('visible');
+
+                        // Capture the image
+                        captureImage();
+
+                        // Draw rectangle around the face
+                        const dims = faceapi.matchDimensions(canvas, video, true);
+                        const resizedDetections = faceapi.resizeResults(detections, dims);
+                        const box = resizedDetections[0].detection.box;
+
+                        ctx.strokeStyle = '#4cd964';
+                        ctx.lineWidth = 3;
+                        ctx.strokeRect(box.x, box.y, box.width, box.height);
+
+                        statusDiv.textContent = "😊 Smile detected! Image captured.";
+                        statusIndicator.classList.remove('waiting');
+                        statusIndicator.classList.add('active');
+
+                        // Pause detection for 2 seconds after capture
+                        isCapturing = false;
+                        setTimeout(() => {
+                            isCapturing = true;
+                            statusDiv.textContent = "Camera active - waiting for a smile...";
+                            statusIndicator.classList.remove('active');
+                            statusIndicator.classList.add('waiting');
+                            smileOverlay.classList.remove('visible');
+                            detectSmile();
+                        }, 2000);
+
+                        return;
+                    } else {
+                        // Draw face landmarks
+                        const dims = faceapi.matchDimensions(canvas, video, true);
+                        const resizedDetections = faceapi.resizeResults(detections, dims);
+                        const box = resizedDetections[0].detection.box;
+
+                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(box.x, box.y, box.width, box.height);
+
+                        // Draw happiness meter
+                        const happyScore = Math.min(Math.round(face.expressions.happy * 100), 100);
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                        ctx.fillRect(box.x, box.y - 30, box.width, 20);
+                        ctx.fillStyle = `hsl(${happyScore}, 100%, 50%)`;
+                        ctx.fillRect(box.x, box.y - 30, box.width * (happyScore/100), 20);
+                        ctx.fillStyle = 'white';
+                        ctx.font = '12px sans-serif';
+                        ctx.fillText(`Smile: ${happyScore}%`, box.x + 5, box.y - 15);
+                    }
+                }
+
+                // Continue detection loop
+                requestAnimationFrame(detectSmile);
+            }
+
+            function captureImage() {
+                // Adjust canvas size to match video
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+
+                // Draw the current video frame to the canvas
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                // Convert canvas to image
+                const imageData = canvas.toDataURL('image/jpeg');
+
+                // Add to gallery
+                addToGallery(imageData);
+
+                // Option: download image
+                // downloadImage(imageData);
+            }
+
+            function addToGallery(imageData) {
+                // Add to array (keeping last 20 images max)
+                capturedImages.unshift(imageData);
+                if (capturedImages.length > 20) {
+                    capturedImages = capturedImages.slice(0, 20);
+                }
+
+                // Update gallery UI
+                galleryEl.innerHTML = '';
+                capturedImages.forEach((imgSrc, index) => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.className = 'gallery-item';
+                    img.dataset.index = index;
+                    img.addEventListener('click', () => downloadImage(imgSrc));
+                    galleryEl.appendChild(img);
+                });
+            }
+
+            function downloadImage(imageData) {
+                const link = document.createElement('a');
+                link.href = imageData;
+                link.download = `smile-capture-${new Date().getTime()}.jpg`;
+                link.click();
+            }
+        });
+    </script>
+</body>
+</html>

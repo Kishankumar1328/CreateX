@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e333a666-2a94-468b-a00f-4d0579db632d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/flask.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Grammer_check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Homepage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Image_Resizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Script_Validation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Script_to_Title.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Script_to_description.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Text_to_Speech.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Title_To_Description.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Title_To_Thumbnail.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/Video_To_Audio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/audio_to_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/signin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/speech_To_Text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/static/audio/speech_05c40494.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/static/audio/speech_7ff6b06f.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/static/audio/speech_c4fb7360.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/temp_uploads/audio_WhatsApp_Video_2025-02-15_at_23.55.13_32ca27a6.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/temp_uploads/audio_WhatsApp_Video_2025-02-15_at_23.55.13_32ca27a6.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/Title_to_Thumbnail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/audio_to_text.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/imageresizer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/script_to_description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/script_to_title.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/script_validation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/smile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/speech_to_text.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/text_to_speech.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/title_to_description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/translator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/video_to_audio.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/video_to_text.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/voice_clone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/youtube_summarizer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/translation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/uploads/BIT_AI_Hackathon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/uploads/fav_resume.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/users.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/video_to_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/voice_clone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/youtube_summarizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Audio_to_Text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Grammar_Check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Hashtags_Generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Script_To_title.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Script_to_Description.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Speech_to_Text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Text_to_Speech.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Title_to_Thumbnail.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Translator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/Video_to_audio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/image_resizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/temp_uploads/WhatsApp_Video_2025-02-15_at_23.55.13_32ca27a6.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/temp_uploads/WhatsApp_Video_2025-02-15_at_23.55.13_32ca27a6.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/temp_uploads/WhatsApp_Video_2025-02-15_at_23.55.13_32ca27a6.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/pages/youtube_summarizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/temp_uploads/WhatsApp_Video_2025-02-15_at_23.55.13_32ca27a6.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multipage_app/temp_uploads/WhatsApp_Video_2025-02-15_at_23.55.13_32ca27a6.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phase_2/Text_To_Video.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phase_2/multipage_app/homepage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Script_Validation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Text_To_Video.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/homepage.py" beforeDir="false" afterPath="$PROJECT_DIR$/multipage_app/homepage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Audio_To_Text.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Audio_To_Text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Script_HashTags.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Script_HashTags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Script_To_Description.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Script_To_Description.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Script_To_Title.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Script_To_Title.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Script_Validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/multipage_app/pages/Script_Validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Text_To_Speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Text_To_Speech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Title_To_Description.py" beforeDir="false" afterPath="$PROJECT_DIR$/multipage_app/pages/title_to_description.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Title_To_Thumbnail.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/Title_To_Thumbnail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/Video_To_Text.py" beforeDir="false" afterPath="$PROJECT_DIR$/multipage_app/pages/Video_To_Text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipage_app/pages/speech_To_Text.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_2/multipage_app/pages/speech_To_Text.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2swKPBatZpf5ym3INEfiqD2y5Ow" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.Audio_To_Text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Grammer_check.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Homepage.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Image_Resizer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Magic_write.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Script_HashTags.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Script_To_Description.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Script_To_Title.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Script_Validation (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Script_Validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Script_to_Title.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Script_to_description.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Tanslator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Text_To_Speech.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Text_To_Video.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Text_to_Speech.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Title_To_Description.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Title_To_Thumbnail.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Transcriptify (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Translator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Video_To_Audio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Video_To_Text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Video_to_Text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Video_to_audio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.WaveCut.executor&quot;: &quot;Run&quot;,
+    &quot;Python.audio_to_text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.chatwithfile.executor&quot;: &quot;Run&quot;,
+    &quot;Python.grammar_checker.executor&quot;: &quot;Run&quot;,
+    &quot;Python.homepage (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.homepage (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.homepage.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image_resizer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sample.executor&quot;: &quot;Run&quot;,
+    &quot;Python.signin.executor&quot;: &quot;Run&quot;,
+    &quot;Python.speech_To_Text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.translation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.video_to_text (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.video_to_text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.voice_clone.executor&quot;: &quot;Run&quot;,
+    &quot;Python.youtube_summarizer (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.youtube_summarizer (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.youtube_summarizer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/medicine&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ADMIN\PycharmProjects\Hackathon\multipage_app\pages" />
+      <recent name="C:\Users\ADMIN\PycharmProjects\Hackathon\multipage_app\uploads" />
+      <recent name="C:\Users\ADMIN\PycharmProjects\Hackathon\multipage_app" />
+      <recent name="C:\Users\ADMIN\PycharmProjects\Hackathon\phase_2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Homepage">
+    <configuration name="Homepage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Hackathon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/Homepage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Image_Resizer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Hackathon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/Image_Resizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Hackathon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="video_to_audio" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Hackathon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/multipage_app/pages" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\ADMIN\PycharmProjects\Hackathon\multipage_app\pages\video_to_audio.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="youtube_summarizer (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Hackathon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/youtube_summarizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="youtube_summarizer (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Hackathon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/multipage_app/pages" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multipage_app/pages/youtube_summarizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="youtube_summarizer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Hackathon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\ADMIN\PycharmProjects\Hackathon\multipage_app\pages\youtube_summarizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Homepage" />
+        <item itemvalue="Python.youtube_summarizer (2)" />
+        <item itemvalue="Python.youtube_summarizer (1)" />
+        <item itemvalue="Python.youtube_summarizer" />
+        <item itemvalue="Python.Image_Resizer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e333a666-2a94-468b-a00f-4d0579db632d" name="Changes" comment="" />
+      <created>1739361170815</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739361170815</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/flask/Script_to_description.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

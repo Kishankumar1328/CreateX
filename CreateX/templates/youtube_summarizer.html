@@ -66,7 +66,7 @@
     <script>
         function summarizeVideo() {
             const videoUrl = document.getElementById("video_url").value;
-            fetch("/summarize", {
+            fetch("/summarize_youtube", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ video_url: videoUrl })

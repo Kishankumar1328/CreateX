@@ -13,6 +13,7 @@ from audio_to_text import convert
 from translation import translate
 from video_to_text import upload_file
 from video_to_text import get_status
+from youtube_summarizer import summarize as summarize_yt
 
 app = Flask(__name__)
 
@@ -308,7 +309,7 @@ def video_to_audio():
 
 @app.route('/youtube-summarizer')
 def youtube_summarizer():
-    return redirect('/youtube_summarizer.py')
+    return render_template('youtube_summarizer.html')
 
 
 @app.route('/check_grammar', methods=['POST'])
@@ -377,6 +378,11 @@ def transform_route():
 @app.route('/upload', methods=['POST'])
 def upload_route():
     return upload_file()
+
+
+@app.route('/summarize_youtube', methods=['POST'])
+def summarize_youtube_route():
+    return summarize_yt()
 
 
 if __name__ == '__main__':
